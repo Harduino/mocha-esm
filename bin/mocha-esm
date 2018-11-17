@@ -12,13 +12,14 @@ const prefixArgs = [
   `${path.join(__dirname, '/../index.mjs')}`
 ];
 
-if (args[0] === 'inspect' || args[0] === 'inspect-brk') {
+if (args[0].includes('inspect') || args[0].includes('inspect-brk')) {
   prefixArgs.unshift(args.shift());
 }
 
-if (args[0] === 'inspect' || args[0] === 'inspect-brk') {
+if (args[0].includes('inspect') || args[0].includes('inspect-brk')) {
   prefixArgs.unshift(args.shift());
 }
+
 execa(node, prefixArgs.concat(args), {
   stdio: 'inherit'
 }).then(_ => process.exit(0),
