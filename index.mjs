@@ -44,7 +44,7 @@ export class Runner {
     this.mocha.suite.emit('pre-require', global, moduleId, this.mocha);
 
     try {
-      await import(moduleId);
+      await import(`file:///${moduleId}`);
     } catch (e) {
       if (e !== null && typeof e === 'object' && e.name === 'SyntaxError') {
         e.message = `\n file: '${moduleId}'\n ${e.message}`;
