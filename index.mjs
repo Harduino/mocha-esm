@@ -26,6 +26,16 @@ export function normalizeOptionAliases(_options) {
     delete options.i;
   }
 
+  if (options.reporterOptions) {
+      let parsed = {};
+      let opts = options.reporterOptions.split(',');
+      for(let i = 0;i < opts.length;i++) {
+          let [key, value] = opts[i].split('=', 2);
+          parsed[key] = value;
+      }
+      options.reporterOptions = parsed;
+  }
+
   return options;
 }
 
