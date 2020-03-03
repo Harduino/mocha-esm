@@ -9,6 +9,7 @@ const thisFile = args.shift();
 
 const prefixArgs = [
   '--experimental-modules',
+  '--experimental-json-modules',
   `${path.join(__dirname, '/../index.mjs')}`
 ];
 
